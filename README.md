@@ -1,5 +1,5 @@
 # Predicting-Insurance-Costs
-Health insurance costs are rising (Source 1). As such, it can be a strain on a person's financial life. It is useful to know what can make insurance costs rise to see if the costs can be minimized. 
+Health insurance costs are rising. As such, it can be a strain on a person's financial life. It is useful to know what can make insurance costs rise to see if the costs can be minimized. 
 ## Goal 
 The goal is to create a linear regression model to train and test data. The model will then be used to 
 predict what raises insurance costs. 
@@ -63,13 +63,13 @@ Since we are looking for correlations in the data, it is useful to plot the data
 
 To reduce the skewness of the data, the data was log-transformed to have a more uniform distribution of data. The log-transformed data was then graphed. 
 
-[Log data]
+![Log data](/Images/Smoker vs cost.png)
 
 Before graphing the data, I used insurance.corr to see if there was any strong relation of variables to insurance costs. From the results, it showed that age and smoker status had high correlations with the cost of insurance.
 
 Here I have plotted: 
 1. Smoker vs Insurance Cost
-[Image]
+![Image](/I
 In this boxplot, those who are smokers tend to have higher insurance costs since the mean and median are higher than those who do not smoke. 
 
 2. Sex vs Insurance cost
