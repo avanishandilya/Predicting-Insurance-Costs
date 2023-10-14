@@ -75,11 +75,13 @@ Here I have plotted:
 In this boxplot, those who are smokers tend to have higher insurance costs since the mean and median are higher than those who do not smoke. 
 
 3. Sex vs Insurance cost
+   
   ![Gender](/Screenshots/gender.png)
-Here, it is shown that females have slightly higher average insurance costs, but not as big of a difference as those who are smokers versus not smokers.
+  
+Here, it is shown that females have slightly higher average insurance costs, but not as big of a difference as those who are smokers versus non-smokers.
 
 
-4. Children vs Insurance Costs
+5. Children vs Insurance Costs
    
 ![Children](/Screenshots/children.png)
 
@@ -125,8 +127,9 @@ The training mean squared error score was around 0.469. The relatively low score
 ### The Model Coefficient 
 Using model.coef_, the obtained coefficients were: 
 1. Smoker: 2.24
-  
+  This means that there is roughly a 939% increase in health insurance costs if the primary beneficiary is a smoker.. 
 3. Age: 0.05
+  For every year older a person gets, the insurance cost goes up by 4%.
 
 ### MSE and R^2 Scores for Test Data 
 The test MSE was around 0.432 and the R^2 value was 0.75. The similarity to the training dataset means that the data was not overfitted and could be reliably used to make predictions. 
