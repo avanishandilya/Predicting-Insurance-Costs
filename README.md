@@ -63,30 +63,38 @@ Since we are looking for correlations in the data, it is useful to plot the data
 
 To reduce the skewness of the data, the data was log-transformed to have a more uniform distribution of data. The log-transformed data was then graphed. 
 
-![Log data](/Images/Smoker vs cost.png)
+![Log data](/Screenshots/histogram.png)
 
 Before graphing the data, I used insurance.corr to see if there was any strong relation of variables to insurance costs. From the results, it showed that age and smoker status had high correlations with the cost of insurance.
 
 Here I have plotted: 
 1. Smoker vs Insurance Cost
-![Image](/I
+   
+![LSmoker](/Screenshots/smoker.png)
+
 In this boxplot, those who are smokers tend to have higher insurance costs since the mean and median are higher than those who do not smoke. 
 
-2. Sex vs Insurance cost
-   [Image]
+3. Sex vs Insurance cost
+  ![Gender](/Screenshots/gender.png)
 Here, it is shown that females have slightly higher average insurance costs, but not as big of a difference as those who are smokers versus not smokers.
 
 
-3. Children vs Insurance Costs
-[Image]
+4. Children vs Insurance Costs
+   
+![Children](/Screenshots/children.png)
+
 In this graph, the average insurance cost stays around the same regardless of how many children the primary beneficiary has.
 
 5. Region vs Insurance Costs
-[Image]
+   
+![Region](/Screenshots/region.png)
+
 The region does not seem to change the average insurance costs, according to this graph.
 
-6. Age vs Insurance Costs
-[Image]
+7. Age vs Insurance Costs
+   
+![Age](/Screenshots/age.png)
+
 As the age increases, so do the insurance costs. The rate at which it does is almost logarithmic.
 
 From the graphs, the ones that have a little more variety in the average health insurance costs are: 
@@ -96,7 +104,7 @@ From the graphs, the ones that have a little more variety in the average health 
 ## 4. Dividing the Data 
 Now that I have chosen the proper variables, I can start dividing the data to use in the linear regression model. 
 First, I'll have to convert the smoker data into numerical data. I opted to use .map() due to its simplicity and ability to quickly convert categorical data into numerical data. 
-[Code] 
+![Map](/Screenshots/mappng) 
 
 Now, for the division of the data, I have set my X to contain the smoker_boolean and age columns. These are my dependent variables. My independent variable (the one changing as a result of the dependents) is the log_charges column. 
 
@@ -104,7 +112,8 @@ The test size is about 30% so I was able to train 70% of the data. With that muc
 
 ## 5. Build the Model 
 I had divided the dataset, so I created the model. Earlier I used the sci-kit learn module to import various libraries needed to make and use the linear regression model. 
-[Image of code]
+
+![Import](/Screenshots/import.png)
 
 I created the model and fit the data using the training sets. 
 
@@ -125,7 +134,7 @@ The test MSE was around 0.432 and the R^2 value was 0.75. The similarity to the 
 ### Residuals
 The residuals are the differences between the actual value and the predicted value from the model. The scatterplot below shows that although the expected residuals were going to lie somewhere around 0, the trend of the graph is that it is going down. This indicates that the prediction and the model should be taken with a grain of salt as it the differences in the actual values and the predicted values are greater than expected. 
 
-[Resdiuals] 
+![Residuals](/Screenshots/residuals.png)
 
 ## 7. Draw Conclusions 
 The model produced some reliable predictions. 
