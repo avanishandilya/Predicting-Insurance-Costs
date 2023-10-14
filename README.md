@@ -31,18 +31,18 @@ Exploring the data set is useful since it will allow me to understand the data m
 
 ### Columns 
 This dataset was gathered from Kaggle, a website that provides datasets for data science and other related areas. 
-There are 7 columns that each describe an aspect about a person using insurance. 
+There are 7 columns that each describe an aspect of a person using insurance. 
 
-1. Age: How old the primary beneficary is 
+1. Age: How old the primary beneficiary is 
 2. Sex: What gender the primary beneficiary is
 3. BMI: Body Mass Index, provides insights about weight versus height 
-4. Children: The number of children the primary beneficary has 
-5. Smoker: Stats whether the primary beneficary is a smoker or not 
-6. Region: The region in the US in which the primary beneficary has their residental area listed 
+4. Children: The number of children the primary beneficiary has 
+5. Smoker: Stats whether the primary beneficiary is a smoker or not 
+6. Region: The region in the US in which the primary beneficiary has their residential area listed 
 7. Charges: The medical costs charged by health insurance 
 
 ### Quantitative Data
-Quantitative Data is data that can be counted or measured. For example, a TV that is 60 inches has quantative data since 60 inches descibes the size of the TV. 
+Quantitative Data is data that can be counted or measured. For example, a TV that is 60 inches has quantitative data since 60 inches describes the size of the TV. 
 
 In the insurance dataset, there are a few columns with quantitative data: 
 1. Age
@@ -50,16 +50,22 @@ In the insurance dataset, there are a few columns with quantitative data:
 3. Children
 4. Charges
 
-### Qualtiative Data
-Qualitative data is data that can descibe characterstics or aspects of an object or person. For example, a red TV has qualitative data since the color 'red' is used to explain how the TV looks. 
+### Qualitative Data
+Qualitative data can describe characteristics or aspects of an object or person. For example, a red TV has qualitative data since the color 'red' is used to explain how the TV looks. 
 
-In the insurance dataset, there are a few columns with qualitiative data: 
+In the insurance dataset, there are a few columns with qualitative data: 
 1. Sex 
 2. Smoker
 3. Region
 
 ## 3. Determine Useful Variables 
 Since we are looking for correlations in the data, it is useful to plot the data to determine, visually, if there could be any correlations. 
+
+To reduce the skewness of the data, the data was log-transformed to have a more uniform distribution of data. The log-transformed data was then graphed. 
+
+[Log data]
+
+Before graphing the data, I used insurance.corr to see if there was any strong relation of variables to insurance costs. From the results, it showed that age and smoker status had high correlations with the cost of insurance.
 
 Here I have plotted: 
 1. Smoker vs Insurance Cost
@@ -68,7 +74,7 @@ In this boxplot, those who are smokers tend to have higher insurance costs since
 
 2. Sex vs Insurance cost
    [Image]
-Here, it is shown that females have slightly higher average insurance costs, but not as big of a difference as those who are smokers versus not smoker.
+Here, it is shown that females have slightly higher average insurance costs, but not as big of a difference as those who are smokers versus not smokers.
 
 
 3. Children vs Insurance Costs
@@ -83,18 +89,18 @@ The region does not seem to change the average insurance costs, according to thi
 [Image]
 As the age increases, so do the insurance costs. The rate at which it does is almost logarithmic.
 
-From the graphs, the ones that have a little more varition in the average health insurance costs are: 
+From the graphs, the ones that have a little more variety in the average health insurance costs are: 
 1. Smoker vs Insurance Costs
 2. Age vs Insurance Costs
 
 ## 4. Dividing the Data 
 Now that I have chosen the proper variables, I can start dividing the data to use in the linear regression model. 
-First, I'll have to convert the smoker data into numerical data. I opted to use .map() due to its simplicity and ability to quickly convert the categorical data into numerical data. 
+First, I'll have to convert the smoker data into numerical data. I opted to use .map() due to its simplicity and ability to quickly convert categorical data into numerical data. 
 [Code] 
 
 Now, for the division of the data, I have set my X to contain the smoker_boolean and age columns. These are my dependent variables. My independent variable (the one changing as a result of the dependents) is the log_charges column. 
 
-The test size is about 30% so that I was able to train 70% of the data. With that much in training, the results of the training will be more reliable. To keep the divided dataset consistent, I chose a random state of 42. 
+The test size is about 30% so I was able to train 70% of the data. With that much training, the results of the training will be more reliable. To keep the divided dataset consistent, I chose a random state of 42. 
 
 ## 5. Build the Model 
 I had divided the dataset, so I created the model. Earlier I used the sci-kit learn module to import various libraries needed to make and use the linear regression model. 
@@ -105,18 +111,19 @@ I created the model and fit the data using the training sets.
 ## 6. Interpret the Model 
 
 ### MSE and R^2 Scores for Training Data
-The training mean squared error score was around 0.469. The relatively low score indicatated that the model was a good fit. The R^2 value was around 0.73. This means that it can account for 73% of variation in the data, which is good for having a reliable dataset to draw predictions from. 
+The training mean squared error score was around 0.469. The relatively low score indicated that the model was a good fit. The R^2 value was around 0.73. This means that it can account for 73% of the variation in the data, which is good for having a reliable dataset to draw predictions. 
 
-### The Model Coeffecient 
+### The Model Coefficient 
 Using model.coef_, the obtained coefficients were: 
 1. Smoker: 2.24
-2. Age: 0.05
+  
+3. Age: 0.05
 
 ### MSE and R^2 Scores for Test Data 
-The test MSE was around 0.432 and the R^2 value was 0.75. THe similarity to the training dataset means that the data was not overfit and could be reliably used to make predictions. 
+The test MSE was around 0.432 and the R^2 value was 0.75. The similarity to the training dataset means that the data was not overfitted and could be reliably used to make predictions. 
 
 ### Residuals
-The residuals are the differences between the actual value and the predicted value from the model. The scatterplot below shows that although the expected resdiuals were going to lie somewhere around 0, the trend of the graph is that it is going down. This indicates that the prediction and the model should be taken with a grain of salt as it the differences in the actual values and the predicted values are greater than expected. 
+The residuals are the differences between the actual value and the predicted value from the model. The scatterplot below shows that although the expected residuals were going to lie somewhere around 0, the trend of the graph is that it is going down. This indicates that the prediction and the model should be taken with a grain of salt as it the differences in the actual values and the predicted values are greater than expected. 
 
 [Resdiuals] 
 
